@@ -1,0 +1,28 @@
+from PyQt6 import QtWidgets, QtCore, QtGui
+class AboutMessage(QtWidgets.QDialog):
+    def __init__(self):
+        super().__init__() 
+        self.setFixedSize(640,400)
+        self.setWindowFlags(QtCore.Qt.WindowType.WindowCloseButtonHint)
+        self.setWindowTitle('About Notepad Clone')
+        self.vertical_layout = QtWidgets.QVBoxLayout(self)
+        self.h_line = QtWidgets.QFrame(self)
+        self.h_line.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.h_line.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
+        self.label_6 = QtWidgets.QLabel("", self)
+        self.label_6.setPixmap(QtGui.QPixmap("./images/dn_logo.png"))
+        self.label_6.setScaledContents(True)
+        self.label_6.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
+        self.label_7 = QtWidgets.QLabel("Notepad Clone", self)
+        font = QtGui.QFont()
+        font.setBold(True)
+        self.label_7.setFont(font)
+        self.label_8 = QtWidgets.QLabel("Developed by Darlington Nkwaze.", self)
+        self.ok_button = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.StandardButton.Ok)
+        self.vertical_layout.addWidget(self.label_6)
+        self.vertical_layout.addWidget(self.h_line)
+        self.vertical_layout.addWidget(self.label_7)
+        self.vertical_layout.addWidget(self.label_8)
+        self.vertical_layout.addWidget(self.ok_button, alignment = QtCore.Qt.AlignmentFlag.AlignRight)
+        self.ok_button.accepted.connect(self.accept)
+#end of About Menu
